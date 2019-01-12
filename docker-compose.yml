@@ -1,0 +1,68 @@
+version: "3.2"
+services:
+  php:
+    build: 
+      context: './php/'
+      args:
+       PHP_VERSION: ${PHP_VERSION}
+    networks:
+      - backend
+    volumes:
+      - ./config/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./public_html/:/var/www/html/
+    restart: always
+    container_name: php
+  apache:
+    build:
+      context: './apache/'
+      args:
+       APACHE_VERSION: ${APACHE_VERSION}
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "82:80"
+    volumes:
+      - ./public_html/:/var/www/html/
+    restart: always
+    container_name: apache
+  mysql:
+    image: mysql:${MYSQL_VERSION:-latest}
+    ports:
+      - '3307:3306'
+    networks:
+      - backend
+    volumes:
+      - ./mysqldata:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=dockerDB
+      - MYSQL_USER=localuser
+      - MYSQL_PASSWORD=Admin@1234  
+      - MYSQL_ROOT_PASSWORD=rootpassword  
+      - TZ=Asia/Singapore
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--default-authentication-plugin=mysql_native_password']
+    restart: always
+    container_name: mysql
+  phpmyadmin:
+    build:
+      context: './phpmyadmin/'
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    links:
+      - mysql:mysql
+    ports:
+      - "83:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=rootpassword
+    networks:
+      - backend
+    container_name: phpmyadmin
+networks:
+  frontend:
+  backend:
