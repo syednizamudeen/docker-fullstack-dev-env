@@ -5,3 +5,5 @@ RUN apk update; \
     apk upgrade;
 
 RUN docker-php-ext-install mysqli
+
+RUN apk add --no-cache bash
