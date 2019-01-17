@@ -8,7 +8,7 @@ services:
     networks:
       - backend
     volumes:
-      - ./config/php.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./config/php.ini:/usr/local/etc/php/php.ini
       - ./public_html/:/var/www/html/
     restart: always
     container_name: php
