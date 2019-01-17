@@ -59,7 +59,6 @@ services:
   phpmyadmin:
     build:
       context: './phpmyadmin/'
-    image: phpmyadmin/phpmyadmin
     restart: always
     links:
       - mysql:mysql
