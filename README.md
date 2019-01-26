@@ -16,8 +16,10 @@
 ## CLI
 
 ### Basic
-* docker version
-* docker info
+`docker version`
+
+`docker info`
+
 * docker login
 * docker container run -it -p 80:80 nginx                                                         <- Interactive Mode
 * docker container ls
@@ -33,8 +35,10 @@
 * docker container exec -it <container name> bash                                                 <- Access Terminal Inside Container
 * docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx   <- Attach Local Folder to Container
 ### Run/Exit Containers
-* docker-compose up
-* docker-compose down                                                                             <- Press (Ctrl+C) ^C to exit Terminal and then Run this Command
+`docker-compose up`
+  
+`docker-compose down` _Press (```Ctrl+C```) `^C` to exit Terminal and then Run this Command_
+
 ### View Logs
 * docker logs --details <container name>                                                          <- to See PHP Error Logs: docker logs -f php
 ### Execute Commands in Container                                                                                                     
