@@ -40,7 +40,9 @@
 `docker-compose down` _Press (```Ctrl+C```) `^C` to exit Terminal and then Run this Command_
 
 ### View Logs
-* docker logs --details <container name>                                                          <- to See PHP Error Logs: docker logs -f php
+`docker logs --details <container name>`
+
+_to See PHP Error Logs: `docker logs -f php`_
 ### Execute Commands in Container                                                                                                     
 * docker-compose exec <container name> <command>                                                  <- Run any Command in Container(CLI): docker-compose exec php php -m
 * docker-compose exec  <name in yml> sh -c '<command 1> && <command 2> && <command 3>'            <- Run commands in CLI: docker-compose exec  php sh -c 'php -m && php -i'
