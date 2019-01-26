@@ -12,16 +12,6 @@ services:
       - ./public_html/:/var/www/html/
     restart: always
     container_name: php
-  composer:
-    restart: 'no'
-    image: composer:${COMPOSER_VERSION}
-    command: install
-    networks:
-      - backend
-    working_dir: /var/www/html/
-    volumes:
-      - ./public_html/:/var/www/html/
-    container_name: composer
   apache:
     build:
       context: './apache/'
@@ -57,8 +47,7 @@ services:
     restart: always
     container_name: mysql
   phpmyadmin:
-    build:
-      context: './phpmyadmin/'
+    image: phpmyadmin/phpmyadmin
     restart: always
     links:
       - mysql:mysql
