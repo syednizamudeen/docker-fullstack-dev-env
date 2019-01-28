@@ -1,5 +1,3 @@
-# docker-php-dev-env
-
 ## Ready to Run
 
 * Apache
@@ -7,11 +5,14 @@
 * Composer
 * MySQL
 * PhpmyAdmin
+* Node.js
 
-## Access via Browser
+## Browse
 
 * http://localhost:82 _to view phpinfo()_
-* http://localhost:83 _access Database via phpmyadmin_
+* http://localhost:83 _for Database access via phpmyadmin_
+* http://localhost:8081 _to view nodejs_
+
 
 ## CLI
 
