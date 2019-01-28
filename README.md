@@ -23,7 +23,7 @@
 
 `docker login`
 
-`docker container run -it -p 80:80 nginx`                                                         <- Interactive Mode
+`docker container run -it -p 80:80 nginx`                                                         _Interactive Mode_
 
 `docker container ls`
 
