@@ -50,7 +50,7 @@
 `docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx`   <- Attach Local Folder to Container
 
 ### Run/Exit Containers
-`docker-compose up`
+`docker-compose up -d`
   
 `docker-compose down` _Press (```Ctrl+C```) `^C` to exit Terminal and then Run this Command_
 
