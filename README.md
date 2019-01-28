@@ -37,17 +37,17 @@
 
 `docker pull <Name>`
 
-`docker container run -d -p 8080:80 --name mynginx nginx`                                         <- Detached Mode
+`docker container run -d -p 8080:80 --name mynginx nginx`                                         _Detached Mode_
 
 `docker container run -d -p 3306:3306 --name mysql --env MYSQL_ROOT_PASSWORD=123456 mysql`
 
 `docker container stop mysql`
 
-`docker container rm <container name> -f`                                                         <- Force Remove Running/Active Container
+`docker container rm <container name> -f`                                                         _Force Remove Running/Active Container_
 
-`docker container exec -it <container name> bash`                                                 <- Access Terminal Inside Container
+`docker container exec -it <container name> bash`                                                 _Access Terminal Inside Container_
 
-`docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx`   <- Attach Local Folder to Container
+`docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx`   _Attach Local Folder to Container_
 
 ### Run/Exit Containers
 `docker-compose up -d`
@@ -59,8 +59,8 @@
 
 _to See PHP Error Logs: `docker logs -f php`_
 ### Execute Commands in Container                                                                                                     
-`docker-compose exec <container name> <command>`                                                  <- Run any Command in Container(CLI): `docker-compose exec php php -m`
+`docker-compose exec <container name> <command>`                                                  _Run any Command in Container(CLI): `docker-compose exec php php -m`_
 
-`docker-compose exec  <name in yml> sh -c '<command 1> && <command 2> && <command 3>'`            <- Run commands in CLI: `docker-compose exec  php sh -c 'php -m && php -i'`
+`docker-compose exec  <name in yml> sh -c '<command 1> && <command 2> && <command 3>'`            _Run commands in CLI: `docker-compose exec  php sh -c 'php -m && php -i'`_
 
-`docker ps -a -q | ForEach { docker stop $_ }`    <- Stop all containers for windows
+`docker ps -a -q | ForEach { docker stop $_ }`    _Stop all containers for windows_
