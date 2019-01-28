@@ -61,6 +61,26 @@ services:
     networks:
       - backend
     container_name: phpmyadmin
+  node:
+    build:
+      context: './node/'
+    restart: always
+    ports:
+      - "8081:3000"
+    links:
+      - mongo
+    networks:
+      - nodejsmongodb
+      - backend
+    container_name: node
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - nodejsmongodb
+    container_name: mongo
 networks:
   frontend:
   backend:
+  nodejsmongodb:
