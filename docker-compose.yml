@@ -36,7 +36,7 @@ services:
     networks:
       - backend
     volumes:
-      - ./mysqldata:/var/lib/mysql
+      - ./dbdata/mysql:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=dockerDB
       - MYSQL_USER=localuser
@@ -67,7 +67,7 @@ services:
     restart: always
     ports:
       - "8081:3000"
-    links:
+    depends_on:
       - mongo
     networks:
       - nodejsmongodb
@@ -79,6 +79,8 @@ services:
       - "27017:27017"
     networks:
       - nodejsmongodb
+    volumes:
+      - ./dbdata/mongo:/data/db
     container_name: mongo
 networks:
   frontend:
