@@ -79,8 +79,6 @@ services:
       - "27017:27017"
     networks:
       - nodejsmongodb
-    volumes:
-      - ./dbdata/mongo:/data/db
     container_name: mongo
 networks:
   frontend:

@@ -16,5 +16,5 @@ app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
 
 var mongoose = require('mongoose');
-mongoose.connect('mogodb://mongo:27017');
+mongoose.connect('mongodb://mongo:27017');
 console.log(mongoose);
