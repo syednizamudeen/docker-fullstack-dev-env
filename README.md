@@ -12,15 +12,17 @@
 * http://localhost:82 _to view phpinfo()_
 * http://localhost:83 _for Database access via phpmyadmin_
 * http://localhost:8081 _to view nodejs_
+
 _NOTE:- bash to node container; install & run npm_
 
-## CLI
+## Docker Commands
 
 ### Run Container
 `docker-compose up -d`
 
 ### Exit Container  
-`docker-compose down` _Press (```Ctrl+C```) `^C` to exit Terminal and then Run this Command_
+`docker-compose down`
+_Press (```Ctrl+C```) `^C` to exit Terminal and then Run this Command_
 
 ### List All Containers
 `docker container ls`
@@ -37,18 +39,20 @@ _NOTE:- bash to node container; install & run npm_
 `docker image rm <Image ID>`
 
 ### Access Terminal/BASH (CLI) Inside Container
-`docker container exec -it <container name> bash`
+`docker container exec -it <Container Name> bash`
 
 ### View Logs
-`docker logs --details <container name>`
+`docker logs --details <Container Name>`
 
 _to See PHP Error Logs: `docker logs -f php`_
-### Execute Commands in Container                                                                                                     
-`docker-compose exec <container name> <command>`                                                  _Run any Command in Container(CLI): `docker-compose exec php php -m`_
+### Execute Command/Script in Container                                                                                                     
+`docker-compose exec <Container Name> <Command>`                                                  
+_Run any Command in Container(CLI): `docker-compose exec php php -m`_
 
-`docker-compose exec  <name in yml> sh -c '<command 1> && <command 2> && <command 3>'`            _Run commands in CLI: `docker-compose exec  php sh -c 'php -m && php -i'`_
+`docker-compose exec <Name in *.yml file> sh -c '<Command 1> && <Command 2> && <Command 3>'`            
+_Run commands in CLI: `docker-compose exec php sh -c 'php -m && php -i'`_
 
-### Others
+### Other Commands FYI
 `docker version`
 
 `docker info`
@@ -65,7 +69,7 @@ _to See PHP Error Logs: `docker logs -f php`_
 
 `docker container stop mysql`
 
-`docker container rm <container name> -f`                                                         _Force Remove Running/Active Container_
+`docker container rm <Container Name> -f`                                                         _Force Remove Running/Active Container_
 
 `docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx`   _Attach Local Folder to Container_
 
