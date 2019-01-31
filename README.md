@@ -74,4 +74,4 @@ _Run commands in CLI: `docker-compose exec php sh -c 'php -m && php -i'`_
 `docker ps -a -q | ForEach { docker stop $_ }`    _Stop all containers for windows_
 
 -------------
-_Known Issue: mongo container will crash in windows docker. Any with workground for this issue most welcome. Find details in [this link](https://dba.stackexchange.com/questions/186478/mongodb-refuse-to-start-operation-not-permitted)_
+_Known Issue: mongo container will crash in windows docker. Anyone with workground for this issue most welcome. Find details in [this link](https://dba.stackexchange.com/questions/186478/mongodb-refuse-to-start-operation-not-permitted)_
