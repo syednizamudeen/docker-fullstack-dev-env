@@ -72,3 +72,6 @@ _Run commands in CLI: `docker-compose exec php sh -c 'php -m && php -i'`_
 `docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx`   _Attach Local Folder to Container_
 
 `docker ps -a -q | ForEach { docker stop $_ }`    _Stop all containers for windows_
+
+-------------
+_Known Issue: mongo container will crash in windows docker. Any with workground for this issue most welcome. Find details in [this link](https://dba.stackexchange.com/questions/186478/mongodb-refuse-to-start-operation-not-permitted)_
