@@ -11,8 +11,7 @@
 
 * http://localhost:82 _to view phpinfo()_
 * http://localhost:83 _for Database access via phpmyadmin_
-* http://localhost:8081 _to view nodejs_
-
+* http://localhost:8081 _to view nodejs_            
 _NOTE:- bash to node container; install & run npm_
 
 ## Docker Commands
@@ -21,7 +20,7 @@ _NOTE:- bash to node container; install & run npm_
 `docker-compose up -d`
 
 ### Exit Container  
-`docker-compose down`
+`docker-compose down`            
 _Press (```Ctrl+C```) `^C` to exit Terminal and then Run this Command_
 
 ### List All Containers
@@ -42,8 +41,7 @@ _Press (```Ctrl+C```) `^C` to exit Terminal and then Run this Command_
 `docker container exec -it <Container Name> bash`
 
 ### View Logs
-`docker logs --details <Container Name>`
-
+`docker logs --details <Container Name>`            
 _to See PHP Error Logs: `docker logs -f php`_
 ### Execute Command/Script in Container                                                                                                     
 `docker-compose exec <Container Name> <Command>`                                                  
