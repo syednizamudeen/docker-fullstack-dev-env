@@ -65,10 +65,13 @@ services:
     build:
       context: './node/'
     restart: always
+    volumes:
+      - ./public_html/:/usr/src/app/
     ports:
       - "8081:3000"
     depends_on:
       - mongo
+    tty: true
     networks:
       - nodejsmongodb
       - backend
