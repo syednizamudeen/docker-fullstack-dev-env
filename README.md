@@ -11,8 +11,9 @@
 
 * http://localhost:82 _to view phpinfo()_
 * http://localhost:83 _for Database access via phpmyadmin_
-* http://localhost:8081 _to view nodejs_            
-_NOTE:- bash to node container; install & run npm_            
+* http://localhost:8081 _to view nodejs_<br>
+_*Info* Angular & Ionic pre-Installed globally_<br>
+_NOTE:- bash to node container; install & run npm_<br>
 _To use Dockers in Windows PC remove `volumes` from mongo container. See more at bottom._
 ## Docker Commands
 

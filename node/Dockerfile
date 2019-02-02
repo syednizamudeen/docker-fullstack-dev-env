@@ -15,7 +15,7 @@ RUN apk add --no-cache bash vim
 # where available (npm@5+)
 # COPY ./app/package*.json ./
 
-RUN node -v
+RUN node --version
 # RUN npm install --quiet
 # RUN npm -v
 # If you are building your code for production
@@ -24,6 +24,13 @@ RUN node -v
 # Bundle app source
 #COPY . .
 # COPY ./app/ .
+
+RUN npm install -g @angular/cli@${ANGULAR_VERSION}
+RUN ng -v
+RUN npm install -g cordova@${CORDOVA_VERSION} ionic@${IONIC_VERSION}
+RUN ionic -v
+RUN npm info cordova
+
 
 EXPOSE 3000
 # CMD [ "npm", "start" ]
