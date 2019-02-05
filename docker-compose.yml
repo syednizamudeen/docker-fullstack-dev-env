@@ -71,6 +71,7 @@ services:
       - ./public_html/:/usr/src/app/
     ports:
       - "8081:3000"
+      - "4201:4200"
       - "8101:8100"
       - "35729:35729"
     depends_on:
