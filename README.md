@@ -63,6 +63,8 @@ _Run commands in CLI: `docker-compose exec php sh -c 'php -m && php -i'`_
 
 `docker container run -it -p 80:80 nginx`                                                         _Interactive Mode_
 
+`docker port apache`                                                         _Check Post Mapping_
+
 `docker pull <Name>`
 
 `docker container run -d -p 8080:80 --name mynginx nginx`                                         _Detached Mode_
