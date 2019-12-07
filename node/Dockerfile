@@ -1,5 +1,4 @@
-ARG NODE_VERSION=""
-FROM node:${NODE_VERSION:+${NODE_VERSION}-}alpine
+FROM node:13.3.0-alpine
 
 RUN apk update; \
     apk upgrade;
@@ -25,11 +24,11 @@ RUN node --version
 #COPY . .
 # COPY ./app/ .
 
-RUN npm install -g @angular/cli@${ANGULAR_VERSION}
-RUN ng -v
-RUN npm install -g cordova@${CORDOVA_VERSION} ionic@${IONIC_VERSION}
+RUN npm install -g @angular/cli@8.3.20
+RUN ng --version
+RUN npm install -g cordova@8.1.2 ionic@5.4.10
 RUN ionic -v
-RUN npm info cordova
+RUN cordova --version
 
 
 EXPOSE 3000

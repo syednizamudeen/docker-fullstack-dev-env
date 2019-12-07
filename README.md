@@ -16,7 +16,7 @@ _NOTE:- bash to node container; install & run npm_<br>
 * http://localhost:4201 _to view Angular_<br>
 _NOTE:- `ng serve --host 0.0.0.0`_<br>
 * http://localhost:8101 _to view Ionic_<br>
-_NOTE:- `ionic serve --no-open`_<br>
+_NOTE:- `ionic serve --external`_<br>
 _To use Dockers in Windows PC remove `volumes` from mongo container. See more at bottom._
 ## Docker Commands
 
