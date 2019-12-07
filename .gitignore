@@ -4,3 +4,4 @@ public_html/*
 !public_html/app
 public_html/app/node_modules/*
 !.gitignore
+.env
