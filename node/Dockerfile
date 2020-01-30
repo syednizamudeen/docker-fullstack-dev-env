@@ -3,7 +3,14 @@ FROM node:13.3.0-alpine
 RUN apk update; \
     apk upgrade;
 
-RUN apk add --no-cache bash vim
+RUN apk add --no-cache bash vim \
+        build-base \
+        libtool \
+        autoconf \
+        automake \
+        jq \
+        openssh \
+        python
 
 # Create app directory
 # RUN mkdir -p /usr/src/app
