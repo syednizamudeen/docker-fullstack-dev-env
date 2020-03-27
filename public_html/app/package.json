@@ -1,14 +1,26 @@
 {
-  "name": "docker_web_app",
+  "name": "docker_node_passport_authentication",
   "version": "1.0.0",
   "description": "Node.js on Docker",
-  "author": "First Last <first.last@example.com>",
-  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "dependencies": {
-    "express": "^4.16.3",
-    "mongoose": "^5.7.5"
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.7.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
   }
 }
