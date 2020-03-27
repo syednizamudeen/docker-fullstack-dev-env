@@ -38,5 +38,5 @@ RUN ionic -v
 RUN cordova --version
 
 
-EXPOSE 3000
+EXPOSE 3000 5000
 # CMD [ "npm", "start" ]
