@@ -13,8 +13,9 @@
 * http://localhost:83 _for Database access via phpmyadmin_
 * http://localhost:8081 _to view nodejs_<br>
 _NOTE:- bash to node container; install & run npm_<br>
-* http://localhost:8081 _to view React_<br>
+* http://localhost:8082 _to view React_<br>
 _NOTE:- bash to node container; `npx create-react-app my-app && cd my-app && npm start`_<br>
+_modify package.json as `"start": "PORT=5000 react-scripts start",`_<br>
 * http://localhost:4201 _to view Angular_<br>
 _NOTE:- `ng serve --host 0.0.0.0`_<br>
 * http://localhost:8101 _to view Ionic_<br>
