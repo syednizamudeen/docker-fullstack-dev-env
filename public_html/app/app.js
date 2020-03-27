@@ -16,5 +16,6 @@ app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://mongo:27017');
+// mongoose.connect('mongodb://user:password@sample.com:port/dbname', { useNewUrlParser: true });
+mongoose.connect('mongodb://mongo:27017', { useNewUrlParser: true, useUnifiedTopology: true });
 console.log(mongoose);
