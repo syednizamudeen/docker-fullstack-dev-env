@@ -19,8 +19,7 @@ _modify package.json as `"start": "PORT=5000 react-scripts start",`_<br>
 * http://localhost:4201 _to view Angular_<br>
 _NOTE:- `ng serve --host 0.0.0.0`_<br>
 * http://localhost:8101 _to view Ionic_<br>
-_NOTE:- `ionic serve --external`_<br>
-_To use Dockers in Windows PC remove `volumes` from mongo container. See more at bottom._
+_NOTE:- `ionic serve --external`_
 ## Docker Commands
 
 ### Run Container
@@ -81,6 +80,3 @@ _Run commands in CLI: `docker-compose exec php sh -c 'php -m && php -i'`_
 `docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx`   _Attach Local Folder to Container_
 
 `docker ps -a -q | ForEach { docker stop $_ }`    _Stop all containers for windows_
-
--------------
-_Known Issue: mongo container will crash in windows docker. Anyone with workground for this issue most welcome. Find details in [this link](https://dba.stackexchange.com/questions/186478/mongodb-refuse-to-start-operation-not-permitted)_

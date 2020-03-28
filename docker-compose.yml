@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.5"
 services:
   php:
     build: 
@@ -83,6 +83,7 @@ services:
       - backend
     container_name: node
   mongo:
+    restart: always
     image: mongo:${MONGO_VERSION}
     ports:
       - "27017:27017"
@@ -90,7 +91,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
     volumes:
-      - ./dbdata/mongo:/data/db
+      - mongodata:/data/db
     networks:
       - nodejsmongodb
     container_name: mongo
@@ -98,3 +99,5 @@ networks:
   frontend:
   backend:
   nodejsmongodb:
+volumes:
+  mongodata:
