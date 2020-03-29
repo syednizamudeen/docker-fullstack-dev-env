@@ -1,4 +1,5 @@
-Contact = require("./contactModel");
+const Contact = require("../models/Contact");
+
 // Handle index actions
 exports.index = function(req, res) {
   Contact.get(function(err, contacts) {

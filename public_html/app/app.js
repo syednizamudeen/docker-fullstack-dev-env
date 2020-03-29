@@ -1,41 +1,19 @@
 const express = require("express");
-// const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
-const passport = require("passport");
-// const flash = require("connect-flash");
-const session = require("express-session");
+const userRouter = require("./routers/user");
+const contactRouter = require("./routers/contact");
 const bodyParser = require("body-parser");
-const cors = require("cors");
 
-// Constants
 const HOST = "0.0.0.0";
 const PORT = 3000;
 
-mongoose.promise = global.Promise;
-
-// App
 const app = express();
-app.use(cors());
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
-app.use(bodyParser.json());
-app.use(
-  session({
-    secret: "passport-tutorial",
-    cookie: { maxAge: 60000 },
-    resave: false,
-    saveUninitialized: false
-  })
-);
 
 mongoose
   .connect("mongodb://mongo:27017", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
+    useFindAndModify: true,
     useCreateIndex: true,
     user: "root",
     pass: "rootpassword",
@@ -45,15 +23,14 @@ mongoose
     console.log("Unable to connect to the mongodb instance. Error: ", reason);
   });
 
-require("./models/User");
-require("./config/passport");
-app.use(require("./routes"));
-
-app.get("/", (req, res) => {
-  res.send("Hello World with Express\n");
-});
-
-// let apiRoutes = require("./api-routes");
-// app.use("/api", apiRoutes);
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
+app.use(bodyParser.json());
+app.use(express.json());
+app.use("/api", userRouter);
+app.use("/api", contactRouter);
 
 app.listen(PORT, HOST, () => console.log(`Running on http://${HOST}:${PORT}`));

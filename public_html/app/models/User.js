@@ -1,50 +1,78 @@
 const mongoose = require("mongoose");
-const crypto = require("crypto");
+const validator = require("validator");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const { Schema } = mongoose;
-
-const UsersSchema = new Schema({
-  email: String,
-  hash: String,
-  salt: String
+const userSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    validate: value => {
+      if (!validator.isEmail(value)) {
+        throw new Error({ error: "Invalid Email address" });
+      }
+    }
+  },
+  password: {
+    type: String,
+    required: true,
+    minLength: 7
+  },
+  tokens: [
+    {
+      token: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 });
 
-UsersSchema.methods.setPassword = function(password) {
-  this.salt = crypto.randomBytes(16).toString("hex");
-  this.hash = crypto
-    .pbkdf2Sync(password, this.salt, 10000, 512, "sha512")
-    .toString("hex");
+userSchema.pre("save", async function(next) {
+  const user = this;
+  if (user.isModified("password")) {
+    user.password = await bcrypt.hash(user.password, 8);
+  }
+  next();
+});
+
+userSchema.methods.generateAuthToken = async function() {
+  const user = this;
+  const token = jwt.sign({ _id: user._id }, "Some@random&text!");
+  user.tokens = user.tokens.concat({ token });
+  await user.save();
+  return token;
 };
 
-UsersSchema.methods.validatePassword = function(password) {
-  const hash = crypto
-    .pbkdf2Sync(password, this.salt, 10000, 512, "sha512")
-    .toString("hex");
-  return this.hash === hash;
+userSchema.statics.findByCredentials = async (email, password) => {
+  // Search for a user by email and password.
+  const user = await User.findOne({ email });
+  if (!user) {
+    throw new Error({ error: "Invalid login credentials" });
+  }
+  const isPasswordMatch = await bcrypt.compare(password, user.password);
+  if (!isPasswordMatch) {
+    throw new Error({ error: "Invalid login credentials" });
+  }
+  return user;
 };
 
-UsersSchema.methods.generateJWT = function() {
-  const today = new Date();
-  const expirationDate = new Date(today);
-  expirationDate.setDate(today.getDate() + 60);
-
-  return jwt.sign(
-    {
-      email: this.email,
-      id: this._id,
-      exp: parseInt(expirationDate.getTime() / 1000, 10)
-    },
-    "secret"
-  );
+userSchema.statics.findByEmail = async email => {
+  // Search for a user by email and password.
+  const user = await User.findOne({ email });
+  if (!user) {
+    return { error: "Email not found." };
+  }
+  return user;
 };
 
-UsersSchema.methods.toAuthJSON = function() {
-  return {
-    _id: this._id,
-    email: this.email,
-    token: this.generateJWT()
-  };
-};
+const User = mongoose.model("User", userSchema);
 
-mongoose.model("Users", UsersSchema);
+module.exports = User;

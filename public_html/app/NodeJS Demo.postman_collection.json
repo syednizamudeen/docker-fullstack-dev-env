@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "15a4f907-48b0-46d0-8bf4-a314db9ff156",
+		"name": "NodeJS Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "admin4@email.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{demo_url}}user/register",
+							"host": [
+								"{{demo_url}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTgwMGUwOGM4YTBiODAyMDhjYWIxODgiLCJpYXQiOjE1ODU0NTMyNDJ9.wPB6TCyDg6dgqfFY5RAz0tNS5CJu2tKKmJvfKvjfW2E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{demo_url}}user/info",
+							"host": [
+								"{{demo_url}}user"
+							],
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a0869eee-11ce-4556-a239-5c07c75c3c65",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin4@email.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{demo_url}}user/login",
+							"host": [
+								"{{demo_url}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTgwMGUwOGM4YTBiODAyMDhjYWIxODgiLCJpYXQiOjE1ODU0NTMyNDJ9.wPB6TCyDg6dgqfFY5RAz0tNS5CJu2tKKmJvfKvjfW2E"
+							}
+						],
+						"url": {
+							"raw": "{{demo_url}}user/logout",
+							"host": [
+								"{{demo_url}}user"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Bob",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "bob@email.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "1234567890",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Male",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{demo_url}}contacts",
+							"host": [
+								"{{demo_url}}contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTgwMGUwOGM4YTBiODAyMDhjYWIxODgiLCJpYXQiOjE1ODU0NTYzODJ9.aJJIi-pfMFk7QYuFj8hPlY6NfumBSVL-dBWamoeNV9o",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{demo_url}}contacts",
+							"host": [
+								"{{demo_url}}contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTgwMGUwOGM4YTBiODAyMDhjYWIxODgiLCJpYXQiOjE1ODU0NTYzODJ9.aJJIi-pfMFk7QYuFj8hPlY6NfumBSVL-dBWamoeNV9o",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{demo_url}}contacts/5e7ed2e312474a0038c6d5f4",
+							"host": [
+								"{{demo_url}}contacts"
+							],
+							"path": [
+								"5e7ed2e312474a0038c6d5f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Bob Gally",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "bob.g@email.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "1234567890",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Male",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{demo_url}}contacts/5e7ed10512474a0038c6d5f3",
+							"host": [
+								"{{demo_url}}contacts"
+							],
+							"path": [
+								"5e7ed10512474a0038c6d5f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{demo_url}}contacts/5e7ed10512474a0038c6d5f3",
+							"host": [
+								"{{demo_url}}contacts"
+							],
+							"path": [
+								"5e7ed10512474a0038c6d5f3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "99662967-f1c1-4900-8c7e-b28c3b6460ad",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0b23af51-93a4-45cc-b566-350eeb50503b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8c387f44-5fdf-47fd-a62d-089ec830b1f6",
+			"key": "demo_url",
+			"value": "http://localhost:3000/api/",
+			"type": "string"
+		},
+		{
+			"id": "75e960d4-9880-4d7e-ab53-fa10bfffa9cf",
+			"key": "demo_token",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
