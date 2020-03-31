@@ -44,7 +44,7 @@ _Press (```Ctrl+C```) `^C` to exit Terminal and then Run this Command_
 `docker image rm <Image ID>`
 
 ### Access Terminal/BASH (CLI) Inside Container
-`docker container exec -it <Container Name> bash`
+`docker container exec -it --workdir=/usr/src/app/ <Container Name> bash`
 
 ### View Logs
 `docker logs --details <Container Name>`            
