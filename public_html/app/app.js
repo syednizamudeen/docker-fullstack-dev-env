@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const userRouter = require("./routers/user");
 const contactRouter = require("./routers/contact");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const HOST = "0.0.0.0";
 const PORT = 3000;
@@ -22,6 +23,12 @@ mongoose
   .catch(function(reason) {
     console.log("Unable to connect to the mongodb instance. Error: ", reason);
   });
+
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
+app.use(cors());
 
 app.use(
   bodyParser.urlencoded({
