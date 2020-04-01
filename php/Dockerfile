@@ -4,7 +4,7 @@ FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
 RUN apk update; \
     apk upgrade;
 
-RUN apk add libxml2-dev gettext-dev git
+RUN apk add libxml2-dev gettext-dev git && git config --global user.name "Mazin Deys" && git config --global user.email dmazin@example.com
 
 RUN docker-php-ext-install mysqli pdo_mysql bcmath xml gettext && docker-php-ext-enable pdo_mysql
 
