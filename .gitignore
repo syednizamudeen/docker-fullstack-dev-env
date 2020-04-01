@@ -3,5 +3,6 @@ public_html/*
 !public_html/index.php
 !public_html/app
 public_html/app/node_modules/*
+public_html/app/package-lock.json
 !.gitignore
 .env
