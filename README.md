@@ -80,3 +80,7 @@ _Run commands in CLI: `docker-compose exec php sh -c 'php -m && php -i'`_
 `docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx`   _Attach Local Folder to Container_
 
 `docker ps -a -q | ForEach { docker stop $_ }`    _Stop all containers for windows_
+
+
+_Other_
+`docker-compose up -d && docker container exec -it --workdir=/usr/src/app/app node bash`

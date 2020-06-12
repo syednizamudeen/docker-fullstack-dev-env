@@ -9,7 +9,8 @@ services:
       - backend
     volumes:
       - ./config/php.ini:/usr/local/etc/php/php.ini
-      - ./public_html/:/var/www/html/
+      # - ./public_html/:/var/www/html/
+      - ./public_html/:/usr/local/apache2/htdocs/
     restart: always
     container_name: php
   apache:
@@ -25,8 +26,10 @@ services:
       - backend
     ports:
       - "82:80"
+      - "85:443"
     volumes:
-      - ./public_html/:/var/www/html/
+      # - ./public_html/:/var/www/html/
+      - ./public_html/:/usr/local/apache2/htdocs/
     restart: always
     container_name: apache
   mysql:
