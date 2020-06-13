@@ -9,7 +9,7 @@ services:
       - backend
     volumes:
       - ./config/php.ini:/usr/local/etc/php/php.ini
-      - ./public_html/:/var/www/html/
+      - ./public_html/:/usr/local/apache2/htdocs/
     restart: always
     container_name: php
   apache:
@@ -26,7 +26,7 @@ services:
     ports:
       - "82:80"
     volumes:
-      - ./public_html/:/var/www/html/
+      - ./public_html/:/usr/local/apache2/htdocs/
     restart: always
     container_name: apache
   mysql:
@@ -64,8 +64,6 @@ services:
   node:
     build:
       context: './node/'
-      args:
-        NODE_VERSION: ${NODE_VERSION}
     restart: always
     volumes:
       - ./public_html/:/usr/src/app/

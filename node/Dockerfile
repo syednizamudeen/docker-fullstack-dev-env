@@ -1,4 +1,4 @@
-FROM node:13.3.0-alpine
+FROM node:12.18.0-alpine
 
 RUN apk update; \
     apk upgrade;
@@ -23,7 +23,7 @@ RUN apk add --no-cache bash vim \
 
 RUN node --version
 # RUN npm install --quiet
-# RUN npm -v
+RUN npm -v
 # If you are building your code for production
 # RUN npm install --only=production
 
@@ -31,11 +31,10 @@ RUN node --version
 #COPY . .
 # COPY ./app/ .
 
-RUN npm install -g @angular/cli@8.3.20
+RUN npm install -g @angular/cli@8.3.27
 RUN ng --version
-RUN npm install -g cordova@8.1.2 ionic@5.4.10
+RUN npm install -g @ionic/cli
 RUN ionic -v
-RUN cordova --version
 
 
 EXPOSE 3000 5000
